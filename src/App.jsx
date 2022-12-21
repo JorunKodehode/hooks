@@ -1,18 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CreateParagraph from "./CreateParagraph";
+import FetchData from "./FetchData";
+import PokemonCard from "./PokemonCard";
 import "./App.css";
 
 function App() {
   const [state, incrementBtn] = useState(0);
-  let saveEl = document.getElementById("save-el");
+
+  useEffect(() => {
+    document.title = "You clicked ${state} times";
+  });
+
+  console.log("This code will run on every rerender.");
+  useEffect(() => {
+    console.log("This render ones");
+  }, []); // dependency array, emty array
+
   let count = 0;
 
   function saveBtn() {
     let countStr = count + " - ";
     saveEl.textContent += countStr;
   }
+
   return (
     <>
+      <FetchData />
       <div className="App">
         <div>{state}</div>
         <button
@@ -22,6 +35,9 @@ function App() {
         >
           Increment
         </button>
+
+        <p>You clicked {count} times.</p>
+        <button onClick={() => incrementBtn(state + 1)}> Click me too </button>
         <button
           onClick={() => {
             saveBtn;
@@ -30,6 +46,7 @@ function App() {
           Save
         </button>
         <CreateParagraph />
+        <PokemonCard />
       </div>
 
       {/* 
