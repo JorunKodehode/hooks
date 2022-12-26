@@ -8,9 +8,10 @@ function PokemonCard(props) {
     // kontrollerer når js skrives, tar inn to prarameter, første funksjon og andre array
     // Fetch logikk her.
     async function getData() {
-      const response = await fetch(API_ENDPOINT); //forespørsel
+      const response = await fetch(API_ENDPOINT); // forespørsel
       const data = await response.json(); // henter data
 
+      console.log(data);
       setData(data);
     }
 

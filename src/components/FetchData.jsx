@@ -7,10 +7,12 @@ function FetchData() {
   const [data, setData] = useState(null); // null i placeholder fordi vi ikke har noe data før fetchen henter data.
 
   useEffect(() => {
+    // useEffect function inside the FetchData function.
     // kontrollerer når js skrives, tar inn to prarameter, første funksjon og andre array
     // Fetch logikk her.
     async function getData() {
-      const response = await fetch(API_ENDPOINT); //forespørsel
+      // getData inside the useEffect func, inside the FetchData func. anonymouse func?
+      const response = await fetch(API_ENDPOINT); // forespørsel
       const data = await response.json(); // henter data
 
       console.log(data);
@@ -23,10 +25,7 @@ function FetchData() {
   return (
     <div>
       {data && // sjekker etter data
-        data.results.map(
-          (pokemon, index) => (key = index),
-          <div>{pokemon.name}</div>
-        )}
+        data.results.map((pokemon) => <div>{pokemon.name}</div>)}
     </div>
   );
 }

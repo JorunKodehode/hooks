@@ -1,5 +1,5 @@
 import { useState } from "react";
-import AddParagraph from "./AddParagraph";
+import AddParagraph from "../AddParagraph";
 
 function CreateParagraph() {
   const [newP, setNewP] = useState([]);
