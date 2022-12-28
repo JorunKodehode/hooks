@@ -18,6 +18,10 @@ function IncrementBtn() {
     let countStr = count + " - ";
     saveEl.textContent += countStr;
   }
+  //   let x = 12;
+  //   let y = 8;
+  //   let res = eval("x+y");
+  //   document.write(res);
 
   return (
     <div className="App">
@@ -30,7 +34,7 @@ function IncrementBtn() {
         Increment
       </button>
 
-      <p>You clicked {count} times.</p>
+      <p>You clicked {state} times.</p>
       <button onClick={() => incrementBtn(state + 1)}> Click me too </button>
       <button
         onClick={() => {

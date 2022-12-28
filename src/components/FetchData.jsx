@@ -24,8 +24,22 @@ function FetchData() {
 
   return (
     <div>
-      {data && // sjekker etter data
-        data.results.map((pokemon) => <div>{pokemon.name}</div>)}
+      {/* Har vi data? Ja, send ut dette fra map metoden */}
+      {/* {data &&
+        data.results.map(function (pokemon) {
+          <div>{pokemon.name}</div>;
+        })} */}
+
+      {/* 
+        Liste over Pokemon objekter 
+        
+        Jeg får visst ikke denne til å fungere.
+      */}
+
+      {data &&
+        data.result.map((pokemon, index) => (
+          <PokemonCard key={index} {...pokemon} /> // name={pokemon.name} url={pokemon.url}
+        ))}
     </div>
   );
 }
