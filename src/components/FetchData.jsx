@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import PokemonCard from "./PokemonCard";
 
-const API_ENDPOINT = "https://pokeapi.co/api/v2/pokemon";
+const API_POKEMON = "https://pokeapi.co/api/v2/pokemon";
 
 function FetchData() {
   const [data, setData] = useState(null); // null i placeholder fordi vi ikke har noe data før fetchen henter data.
@@ -12,7 +12,7 @@ function FetchData() {
     // Fetch logikk her.
     async function getData() {
       // getData inside the useEffect func, inside the FetchData func. anonymouse func?
-      const response = await fetch(API_ENDPOINT); // forespørsel
+      const response = await fetch(API_POKEMON); // forespørsel
       const data = await response.json(); // henter data
 
       console.log(data);
@@ -33,11 +33,10 @@ function FetchData() {
       {/* 
         Liste over Pokemon objekter 
         
-        Jeg får visst ikke denne til å fungere.
       */}
 
       {data &&
-        data.result.map((pokemon, index) => (
+        data.results.map((pokemon, index) => (
           <PokemonCard key={index} {...pokemon} /> // name={pokemon.name} url={pokemon.url}
         ))}
     </div>
